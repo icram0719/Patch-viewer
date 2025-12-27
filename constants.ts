@@ -5,15 +5,14 @@ export const SUPPORTED_GAMES: Game[] = [
     id: 'lol',
     name: 'League of Legends',
     slug: 'league-of-legends',
-    // Riot DDragon (Official & Stable)
-    image: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg', 
+    // Epic Games Store Asset (Extremely Stable & Public)
+    image: 'https://cdn1.epicgames.com/offer/24b9b5e323bc498198a875794357c2a5/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff19d5d6a635', 
     themeColor: 'text-nexus-gold',
   },
   {
     id: 'helldivers-2',
     name: 'Helldivers 2',
     slug: 'helldivers-2',
-    // Steam Vertical Library Art (High Res & Stable)
     image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/library_600x900.jpg',
     themeColor: 'text-yellow-400',
   },
@@ -21,8 +20,8 @@ export const SUPPORTED_GAMES: Game[] = [
     id: 'valorant',
     name: 'VALORANT',
     slug: 'valorant',
-    // Riot ContentStack - Key Art
-    image: 'https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5f65b86f87747e6d/63e414c549641c5d5d8f6f3e/VALORANT_Jett_Standard_1920x1080.jpg',
+    // Epic Games Store Asset
+    image: 'https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-d9ca2c0f20d44e2f9925227b81255738',
     themeColor: 'text-rose-500',
   },
   {
@@ -120,16 +119,16 @@ export const SUPPORTED_GAMES: Game[] = [
     id: 'minecraft',
     name: 'Minecraft',
     slug: 'minecraft',
-    // Minecraft.net Official Vertical Art
-    image: 'https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg',
+    // Microsoft Store Asset (Very Stable)
+    image: 'https://store-images.s-microsoft.com/image/apps.60323.13850085746326678.9b63e9c9-6330-4e80-9366-5d66649d2e1c.e954b830-4754-4654-a823-3b10c6607e4d',
     themeColor: 'text-green-600',
   },
   {
     id: 'genshin-impact',
     name: 'Genshin Impact',
     slug: 'genshin-impact',
-    // Hoyoverse Official CDN
-    image: 'https://webstatic.hoyoverse.com/upload/content/2022/07/25/89d25514757c24a64d97a5146c823027_2622533206260196849.jpg',
+    // Epic Games Store Asset
+    image: 'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_GenshinImpact_miHoYoLimited_S1_2560x1440-91c6cd7312cc2647c3ebccca10f30399',
     themeColor: 'text-purple-300',
   },
   {
@@ -185,8 +184,8 @@ export const SUPPORTED_GAMES: Game[] = [
     id: 'fortnite',
     name: 'Fortnite',
     slug: 'fortnite',
-    // Epic Games / Unreal Engine CDN (Stable Social Asset)
-    image: 'https://cdn2.unrealengine.com/fortnite-battle-royale-chapter-5-season-2-social-1920x1080-8774577c6175.jpg',
+    // Epic Games Store Asset
+    image: 'https://cdn1.epicgames.com/offer/fn/29CM_Hero_2560x1440-9a205a764728b7b9b007b8b438b43800',
     themeColor: 'text-blue-400',
   },
   {
@@ -200,7 +199,8 @@ export const SUPPORTED_GAMES: Game[] = [
     id: 'path-of-exile',
     name: 'Path of Exile',
     slug: 'path-of-exile',
-    image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238960/library_600x900.jpg',
+    // Epic Games Store Asset
+    image: 'https://cdn1.epicgames.com/offer/21160c874df1492ba6438084a9c372b8/EGS_PathofExile_GrindingGearGames_S1_2560x1440-6218151213f5080c98f9801826f6580f',
     themeColor: 'text-red-800',
   }
 ];

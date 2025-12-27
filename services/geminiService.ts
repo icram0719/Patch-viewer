@@ -1,9 +1,6 @@
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { FetchResult, PatchNotes, GroundingSource } from "../types";
 
-// Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 // Simple in-memory cache
 const cache = new Map<string, { timestamp: number, result: FetchResult }>();
 const CACHE_DURATION_MS = 1000 * 60 * 30; // 30 minutes cache
@@ -67,6 +64,14 @@ export const fetchLatestPatchNotes = async (gameName: string): Promise<FetchResu
 
   try {
     const modelId = "gemini-3-flash-preview";
+    
+    // Safely retrieve API Key. If missing, throw error here to be caught by UI, not crash app.
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      throw new Error("API Key is missing. Please check your environment configuration.");
+    }
+
+    const ai = new GoogleGenAI({ apiKey });
     
     // Updated prompt for exhaustive detail, verification, and separation of hotfixes
     const prompt = `
