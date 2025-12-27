@@ -1,4 +1,4 @@
-import { Game } from './types';
+import { Game } from './types.ts';
 
 export const SUPPORTED_GAMES: Game[] = [
   {

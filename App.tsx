@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Game, PatchNotes, GroundingSource } from './types';
-import GameSelector from './components/GameSelector';
-import PatchViewer from './components/PatchViewer';
-import LoadingSkeleton from './components/LoadingSkeleton';
-import { fetchLatestPatchNotes } from './services/geminiService';
+import { Game, PatchNotes, GroundingSource } from './types.ts';
+import GameSelector from './components/GameSelector.tsx';
+import PatchViewer from './components/PatchViewer.tsx';
+import LoadingSkeleton from './components/LoadingSkeleton.tsx';
+import { fetchLatestPatchNotes } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);

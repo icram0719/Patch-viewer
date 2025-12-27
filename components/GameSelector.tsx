@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Game } from '../types';
-import { SUPPORTED_GAMES } from '../constants';
+import { Game } from '../types.ts';
+import { SUPPORTED_GAMES } from '../constants.ts';
 
 interface GameSelectorProps {
   onSelect: (game: Game) => void;
@@ -68,15 +68,24 @@ const GameSelector: React.FC<GameSelectorProps> = ({ onSelect, selectedId }) => 
                 }}
               >
                 {/* Image Container */}
-                <div className="absolute inset-0 z-0 bg-nexus-900">
+                <div className="absolute inset-0 z-0 bg-nexus-900 overflow-hidden">
                   <img 
                     src={game.image} 
                     alt={game.name} 
+                    loading="lazy"
+                    crossOrigin="anonymous"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-[0.7] group-hover:brightness-100 grayscale group-hover:grayscale-0"
                     onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-nexus-800', 'to-nexus-950');
-                      // Create a fallback title or icon element if needed, but the parent bg change is subtle enough.
+                      const target = e.currentTarget;
+                      // Fallback logic: replace broken image with a nice placeholder gradient instead of hiding completely
+                      target.style.display = 'none';
+                      if (target.parentElement) {
+                         target.parentElement.classList.add('bg-gradient-to-br', 'from-nexus-800', 'to-nexus-900', 'flex', 'items-center', 'justify-center');
+                         target.parentElement.innerHTML = `
+                           <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMWgxOHYxOEgxVjF6IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-20"></div>
+                           <span class="text-4xl opacity-20">🎮</span>
+                         `;
+                      }
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-nexus-950 via-nexus-900/80 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />

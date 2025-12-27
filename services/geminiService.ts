@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type, Schema } from "@google/genai";
-import { FetchResult, PatchNotes, GroundingSource } from "../types";
+import { FetchResult, PatchNotes, GroundingSource } from "../types.ts";
 
 // Simple in-memory cache
 const cache = new Map<string, { timestamp: number, result: FetchResult }>();

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { PatchNotes, ChangeType, GroundingSource, PatchItem } from '../types';
-import { SUPPORTED_GAMES, TRENDING_UPDATES } from '../constants';
+import { PatchNotes, ChangeType, GroundingSource, PatchItem } from '../types.ts';
+import { SUPPORTED_GAMES, TRENDING_UPDATES } from '../constants.ts';
 
 interface PatchViewerProps {
   patch: PatchNotes;
