@@ -6,16 +6,6 @@
     <title>Nexus Patch Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // SHIM: Polyfill process.env for browser environments to prevent "process is not defined" crashes.
-      // NOTE: When deploying to GitHub Pages, you must either build the app with the key injected
-      // or manually set it here for testing (not recommended for public repos).
-      window.process = {
-        env: {
-          API_KEY: '' // The app will show a UI error if this is empty, rather than crashing.
-        }
-      };
-    </script>
-    <script>
       tailwind.config = {
         theme: {
           extend: {
@@ -180,6 +170,5 @@
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

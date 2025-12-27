@@ -68,11 +68,16 @@ const GameSelector: React.FC<GameSelectorProps> = ({ onSelect, selectedId }) => 
                 }}
               >
                 {/* Image Container */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 bg-nexus-900">
                   <img 
                     src={game.image} 
                     alt={game.name} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-[0.7] group-hover:brightness-100 grayscale group-hover:grayscale-0"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-nexus-800', 'to-nexus-950');
+                      // Create a fallback title or icon element if needed, but the parent bg change is subtle enough.
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-nexus-950 via-nexus-900/80 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
                 </div>
