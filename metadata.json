@@ -1,0 +1,5 @@
+{
+  "name": "Nexus Patch Hub",
+  "description": "A centralized hub to view the latest major patch notes for popular live-service games, powered by Gemini AI with real-time web grounding.",
+  "requestFramePermissions": []
+}
