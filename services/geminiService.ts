@@ -1,8 +1,19 @@
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { FetchResult, PatchNotes, GroundingSource } from "../types";
 
-// Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy initialization of Gemini Client to prevent crash on load if key is missing
+let aiClient: GoogleGenAI | null = null;
+
+const getAiClient = () => {
+  if (!aiClient) {
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      throw new Error("API Key is missing. Please configure process.env.API_KEY.");
+    }
+    aiClient = new GoogleGenAI({ apiKey });
+  }
+  return aiClient;
+};
 
 // Simple in-memory cache
 const cache = new Map<string, { timestamp: number, result: FetchResult }>();
@@ -66,6 +77,8 @@ export const fetchLatestPatchNotes = async (gameName: string): Promise<FetchResu
   }
 
   try {
+    // Initialize client here safely
+    const ai = getAiClient();
     const modelId = "gemini-3-flash-preview";
     
     // Updated prompt for exhaustive detail, verification, and separation of hotfixes
